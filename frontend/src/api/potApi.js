@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/pots";
+const API_URL = `${ import.meta.env.VITE_API_URL ||"http://localhost:5000"}/api/pots`;
 
 // Reusable function for API requests
 async function request(url, options = {}) {

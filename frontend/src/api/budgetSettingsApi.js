@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:5000/api/budget-settings";
+const API_URL = `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/budget-settings`;
 
 // Reusable function for API requests
 async function request(url, options = {}) {
