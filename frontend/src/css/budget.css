@@ -1,0 +1,722 @@
+
+.budget-page {
+    width: 100%;
+    min-width: 0;
+    padding-bottom: 28px;
+    color: var(--dark, #201f23);
+}
+
+.budget-page * {
+    box-sizing: border-box;
+}
+
+.budget-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 26px;
+}
+
+.budget-eyebrow {
+    margin: 0 0 7px;
+    color: var(--teal, #2f7f7b);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.budget-heading h2 {
+    margin: 0;
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.budget-subtitle {
+    max-width: 540px;
+    margin: 9px 0 0;
+    color: var(--grey, #77757a);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.budget-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 0 16px;
+    border: 1px solid #dedbd5;
+    border-radius: 9px;
+    background: #fff;
+    color: var(--dark, #201f23);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.budget-edit-btn:hover {
+    background: #eeece7;
+}
+
+/* Income and remaining balance */
+
+.budget-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 28px;
+    border-radius: 15px;
+    background: var(--dark, #201f23);
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.budget-hero-copy {
+    min-width: 0;
+}
+
+.budget-hero-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    margin-bottom: 17px;
+    border-radius: 12px;
+    background: rgb(128 201 209 / 16%);
+    color: var(--blue, #80c9d1);
+}
+
+.budget-hero-copy > p,
+.budget-hero-result > span {
+    margin: 0 0 9px;
+    color: #c6c4c8;
+    font-size: 13px;
+}
+
+.budget-hero-copy h3,
+.budget-hero-result h3 {
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-size: clamp(25px, 3vw, 35px);
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.budget-hero-note {
+    display: inline-block;
+    margin-top: 12px;
+    color: #c6c4c8;
+    font-size: 11px;
+}
+
+.budget-hero-result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding-left: 25px;
+    border-left: 1px solid rgb(255 255 255 / 13%);
+}
+
+.budget-hero-result h3 {
+    color: var(--blue, #80c9d1);
+}
+
+.budget-hero-result h3.budget-over {
+    color: #f0a38c;
+}
+
+.budget-hero-result > p {
+    max-width: 260px;
+    margin: 10px 0 0;
+    color: #c6c4c8;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.budget-income-edit {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    max-width: 270px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid var(--blue, #80c9d1);
+    color: var(--blue, #80c9d1);
+    font-size: 27px;
+    font-weight: 750;
+}
+
+.budget-income-edit input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+
+/* Shared white panels */
+
+.budget-plan-panel,
+.budget-expenses-panel,
+.budget-progress-panel {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--border, #efeeec);
+    border-radius: 13px;
+    background: var(--white, #fff);
+}
+
+.budget-plan-panel {
+    margin-bottom: 24px;
+}
+
+.budget-panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 23px;
+}
+
+.budget-panel-heading h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -0.3px;
+}
+
+.budget-panel-heading p {
+    margin: 6px 0 0;
+    color: var(--grey, #77757a);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.budget-panel-heading select {
+    max-width: 165px;
+    min-height: 40px;
+    padding: 0 11px;
+    border: 1px solid var(--border, #efeeec);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--dark, #201f23);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+/* Allocation cards */
+
+.budget-allocation {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.allocation-card {
+    min-width: 0;
+    padding: 18px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+}
+
+.needs-allocation {
+    background: #e3f2ec;
+    border-color: #d0e9df;
+}
+
+.wants-allocation {
+    background: #f9eee5;
+    border-color: #f2e1d3;
+}
+
+.savings-allocation {
+    background: #e5f2f4;
+    border-color: #d4e9ec;
+}
+
+.allocation-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.allocation-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgb(255 255 255 / 75%);
+}
+
+.needs-allocation .allocation-icon,
+.needs-allocation .allocation-percent {
+    color: var(--teal, #2f7f7b);
+}
+
+.wants-allocation .allocation-icon,
+.wants-allocation .allocation-percent {
+    color: #9b613e;
+}
+
+.savings-allocation .allocation-icon,
+.savings-allocation .allocation-percent {
+    color: #397f87;
+}
+
+.allocation-percent {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.allocation-card > p {
+    margin: 0 0 8px;
+    color: #656168;
+    font-size: 12px;
+}
+
+.allocation-card h4 {
+    margin: 0 0 7px;
+    overflow-wrap: anywhere;
+    font-size: clamp(17px, 2vw, 24px);
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+.allocation-card > span {
+    color: #77757a;
+    font-size: 10px;
+}
+
+.budget-allocation-bar {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    height: 11px;
+    margin-top: 25px;
+    border-radius: 10px;
+    background: #eeece8;
+}
+
+.budget-allocation-bar span:nth-child(1) {
+    background: var(--teal, #2f7f7b);
+}
+
+.budget-allocation-bar span:nth-child(2) {
+    background: var(--peach, #f0c9a9);
+}
+
+.budget-allocation-bar span:nth-child(3) {
+    background: var(--blue, #80c9d1);
+}
+
+.budget-bar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.budget-bar-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--grey, #77757a);
+    font-size: 11px;
+}
+
+.budget-bar-legend i {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+}
+
+.legend-needs {
+    background: var(--teal, #2f7f7b);
+}
+
+.legend-wants {
+    background: var(--peach, #f0c9a9);
+}
+
+.legend-savings {
+    background: var(--blue, #80c9d1);
+}
+
+/* Expenses and budget health */
+
+.budget-details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 24px;
+}
+
+.budget-total-tag {
+    padding: 7px 10px;
+    border-radius: 20px;
+    background: #e3f2ec;
+    color: var(--teal, #2f7f7b);
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.budget-expense-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.budget-expense-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border, #efeeec);
+}
+
+.budget-expense-row:first-child {
+    padding-top: 0;
+}
+
+.expense-icon {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.expense-want {
+    background: #f9eee5;
+    color: #9b613e;
+}
+
+.expense-need {
+    background: #e3f2ec;
+    color: var(--teal, #2f7f7b);
+}
+
+.expense-name {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.expense-name strong {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+}
+
+.expense-name span {
+    color: var(--grey, #77757a);
+    font-size: 11px;
+}
+
+.expense-amount {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 125px;
+    min-width: 90px;
+    padding: 9px 10px;
+    border: 1px solid var(--border, #efeeec);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--grey, #77757a);
+    font-size: 11px;
+}
+
+.expense-amount:focus-within {
+    border-color: var(--teal, #2f7f7b);
+}
+
+.expense-amount input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--dark, #201f23);
+    font: inherit;
+    font-weight: 700;
+}
+
+.budget-expense-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 19px;
+    padding-top: 17px;
+    border-top: 1px solid var(--border, #efeeec);
+    font-size: 12px;
+}
+
+.budget-expense-footer > span {
+    color: var(--grey, #77757a);
+}
+
+.budget-expense-footer strong {
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.budget-health-icon {
+    flex-shrink: 0;
+    color: var(--teal, #2f7f7b);
+}
+
+.budget-progress-item {
+    margin-bottom: 25px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.progress-label > span {
+    color: var(--grey, #77757a);
+}
+
+.progress-label strong {
+    overflow-wrap: anywhere;
+}
+
+.progress-track {
+    overflow: hidden;
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background: #efeeec;
+}
+
+.progress-track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    transition: width 0.25s ease;
+}
+
+.progress-needs {
+    background: var(--teal, #2f7f7b);
+}
+
+.progress-wants {
+    background: var(--peach, #f0c9a9);
+}
+
+.progress-savings {
+    background: var(--blue, #80c9d1);
+}
+
+.budget-progress-item > p {
+    margin: 8px 0 0;
+    color: var(--grey, #77757a);
+    font-size: 10px;
+}
+
+.budget-savings-input {
+    margin-top: 6px;
+    padding-top: 19px;
+    border-top: 1px solid var(--border, #efeeec);
+}
+
+.budget-savings-input label,
+.budget-period label {
+    display: block;
+    margin-bottom: 9px;
+    color: var(--grey, #77757a);
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.budget-savings-input > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    border: 1px solid var(--border, #efeeec);
+    border-radius: 8px;
+    background: #fff;
+}
+
+.budget-savings-input > div:focus-within {
+    border-color: var(--teal, #2f7f7b);
+}
+
+.budget-savings-input > div span {
+    color: var(--grey, #77757a);
+    font-size: 12px;
+}
+
+.budget-savings-input input {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--dark, #201f23);
+    font: inherit;
+    font-size: 13px;
+}
+
+.budget-period {
+    margin-top: 18px;
+}
+
+.budget-period select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 11px;
+    border: 1px solid var(--border, #efeeec);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--dark, #201f23);
+    font: inherit;
+    font-size: 12px;
+}
+
+.budget-retry-btn {
+    margin-top: 8px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #2f7f7b;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.budget-retry-btn:hover {
+    background: #256663;
+}
+
+.budget-retry-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Tablet */
+
+@media (max-width: 950px) {
+    .budget-details-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .budget-allocation {
+        gap: 10px;
+    }
+
+    .allocation-card {
+        padding: 15px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .budget-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .budget-edit-btn {
+        width: 100%;
+    }
+
+    .budget-hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 22px;
+    }
+
+    .budget-hero-result {
+        padding: 19px 0 0;
+        border-top: 1px solid rgb(255 255 255 / 13%);
+        border-left: 0;
+    }
+
+    .budget-plan-panel,
+    .budget-expenses-panel,
+    .budget-progress-panel {
+        padding: 18px 15px;
+    }
+
+    .budget-panel-heading {
+        align-items: flex-start;
+    }
+
+    .budget-panel-heading h3 {
+        font-size: 16px;
+    }
+
+    .budget-panel-heading select {
+        max-width: 145px;
+        font-size: 11px;
+    }
+
+    .budget-allocation {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .allocation-card {
+        padding: 16px;
+    }
+
+    .allocation-top {
+        margin-bottom: 12px;
+    }
+
+    .allocation-card h4 {
+        font-size: 22px;
+    }
+
+    .budget-bar-legend {
+        gap: 12px;
+    }
+
+    .budget-expense-row {
+        gap: 9px;
+    }
+
+    .expense-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .expense-amount {
+        width: 100px;
+        min-width: 82px;
+        padding: 8px 7px;
+    }
+
+    .budget-expense-footer {
+        align-items: flex-start;
+    }
+}

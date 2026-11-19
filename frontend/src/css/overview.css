@@ -1,0 +1,977 @@
+
+/* =========================
+   COLOR SYSTEM
+========================= */
+:root {
+    --dark: #201f23;
+    --background: #f7f4ef;
+    --white: #ffffff;
+    --teal: #2f7f7b;
+    --blue: #80c9d1;
+    --peach: #f0c9a9;
+    --grey: #77757a;
+    --border: #efeeec;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+    background: var(--background);
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+.app-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: stretch;
+    background: var(--background);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    min-width: 300px;
+    height: 100vh;
+    padding: 32px 0 24px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    color: var(--white);
+    background: var(--dark);
+    border-radius: 0 16px 16px 0;
+
+    transition: width 0.25s ease, min-width 0.25s ease;
+}
+
+.brand {
+    margin: 0 32px 56px;
+    color: var(--white);
+    font-size: 29px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* Navigation */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    width: calc(100% - 24px);
+    min-height: 56px;
+    flex-shrink: 0;
+    padding: 0 30px;
+
+    color: #bdbbc0;
+    background: transparent;
+    border: none;
+    border-left: 4px solid transparent;
+    border-radius: 0 12px 12px 0;
+
+    cursor: pointer;
+    text-align: left;
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-item:hover {
+    color: var(--white);
+    background: #302f33;
+}
+
+.nav-item.active {
+    color: var(--dark);
+    background: var(--background);
+    border-left-color: var(--teal);
+}
+
+.nav-item.active svg {
+    color: var(--teal);
+}
+
+.nav-item svg {
+    flex-shrink: 0;
+}
+
+.nav-item span,
+.minimize-btn span {
+    white-space: nowrap;
+}
+
+.minimize-btn {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-top: auto;
+    padding: 16px 30px;
+
+    color: #bdbbc0;
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    text-align: left;
+    font-weight: 600;
+}
+
+.minimize-btn:hover {
+    color: var(--white);
+}
+
+/* =========================
+   COLLAPSED SIDEBAR
+========================= */
+.menu-closed .sidebar {
+    width: 86px;
+    min-width: 86px;
+}
+
+.menu-closed .brand {
+    margin-left: 28px;
+    font-size: 25px;
+}
+
+.menu-closed .nav-item {
+    justify-content: center;
+    width: 70px;
+    padding: 0;
+}
+
+.menu-closed .minimize-btn {
+    justify-content: center;
+    padding: 16px 30px;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+    flex: 1;
+    min-width: 0;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    padding: 38px 40px;
+}
+
+.menu-closed .main-content {
+    width: calc(100% - 86px);
+    margin-left: 86px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.deposit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 13px 20px;
+    color: var(--white);
+    background: var(--teal);
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.deposit-btn:hover {
+    background: #246763;
+}
+
+/* =========================
+   SUMMARY CARDS
+========================= */
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+.summary-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+
+    min-width: 0;
+    min-height: 120px;
+    padding: 24px;
+
+    background: var(--white);
+    border-radius: 13px;
+}
+
+.summary-card p {
+    margin: 0;
+    color: var(--grey);
+    font-size: 14px;
+}
+
+.summary-card h2 {
+    margin: 0;
+    font-size: clamp(23px, 2vw, 34px);
+    letter-spacing: -0.7px;
+    overflow-wrap: anywhere;
+}
+
+.balance-card {
+    color: var(--white);
+    background: var(--dark);
+}
+
+.balance-card p {
+    color: #d0cdd2;
+}
+
+.balance-card h2 {
+    color: var(--white);
+}
+
+/* =========================
+   DASHBOARD COLUMNS
+========================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+    width: 100%;
+}
+
+.dashboard-left,
+.dashboard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+/* =========================
+   PANELS
+========================= */
+.panel {
+    min-width: 0;
+    padding: 28px 32px;
+    background: var(--white);
+    border-radius: 14px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.panel-header h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.details-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 5px 0;
+    color: var(--grey);
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.details-btn:hover {
+    color: var(--teal);
+}
+
+/* =========================
+   POTS
+========================= */
+.pots-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 22px;
+}
+
+.total-saved {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    min-width: 0;
+    min-height: 110px;
+    padding: 22px;
+
+    background: var(--background);
+    border-radius: 12px;
+}
+
+.total-saved svg {
+    flex-shrink: 0;
+    color: var(--teal);
+}
+
+.total-saved p {
+    margin: 0 0 10px;
+    color: var(--grey);
+    font-size: 13px;
+}
+
+.total-saved h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.pot-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 12px;
+}
+
+.pot-item,
+.legend-item {
+    min-width: 0;
+    padding-left: 12px;
+    border-left: 4px solid;
+}
+
+.pot-item p,
+.legend-item p {
+    margin: 0 0 8px;
+    color: var(--grey);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.pot-item strong,
+.legend-item strong {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.teal {
+    border-color: var(--teal);
+}
+
+.blue {
+    border-color: var(--blue);
+}
+
+.peach {
+    border-color: var(--peach);
+}
+
+.grey {
+    border-color: #77717f;
+}
+
+/* =========================
+   TRANSACTIONS
+========================= */
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    min-width: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.transaction-item:first-child {
+    padding-top: 0;
+}
+
+.transaction-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.transaction-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+
+    color: var(--white);
+    background: var(--teal);
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.avatar-1 {
+    background: #936d58;
+}
+
+.avatar-2 {
+    background: #657f70;
+}
+
+.avatar-3 {
+    background: #658a9b;
+}
+
+.avatar-4 {
+    background: #a99b4f;
+}
+
+.transaction-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 7px;
+    min-width: 0;
+}
+
+.transaction-info strong {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.transaction-info span {
+    display: block;
+    color: var(--grey);
+    font-size: 12px;
+}
+
+.transaction-amount {
+    flex-shrink: 0;
+    font-size: 13px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.positive {
+    color: var(--teal);
+}
+
+.negative {
+    color: var(--dark);
+}
+
+/* =========================
+   BUDGETS
+========================= */
+.budget-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.donut-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+.donut-chart {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 240px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: conic-gradient(
+        var(--teal) 0deg 35deg,
+        #d9eeee 35deg 75deg,
+        var(--blue) 75deg 235deg,
+        var(--peach) 235deg 280deg,
+        #77717f 280deg 330deg,
+        #4d7776 330deg 360deg
+    );
+}
+
+.donut-chart::before {
+    position: absolute;
+    width: 68%;
+    height: 68%;
+    content: "";
+    background: var(--white);
+    border-radius: 50%;
+}
+
+.donut-center {
+    z-index: 1;
+    text-align: center;
+}
+
+.donut-center h2 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 2vw, 32px);
+}
+
+.donut-center p {
+    margin: 0;
+    color: var(--grey);
+    font-size: 12px;
+}
+
+.budget-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+}
+
+.legend-item {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+/* =========================
+   RECURRING BILLS
+========================= */
+.bill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.bill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 20px 14px;
+    background: var(--background);
+    border-left: 4px solid;
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+.bill-item span {
+    color: var(--grey);
+}
+
+.bill-item strong {
+    white-space: nowrap;
+}
+
+/* =========================
+   TABLET: 701px–1010px
+========================= */
+@media (min-width: 701px) and (max-width: 1010px) {
+    .sidebar,
+    .menu-closed .sidebar {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        height: 76px;
+        padding: 8px 16px;
+
+        overflow: hidden;
+        border-radius: 16px 16px 0 0;
+        z-index: 1000;
+    }
+
+    .brand,
+    .minimize-btn {
+        display: none;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 100%;
+        gap: 0;
+    }
+
+    .nav-item,
+    .menu-closed .nav-item {
+        flex: 1 1 0;
+        justify-content: center;
+
+        width: 20%;
+        min-width: 0;
+        min-height: 56px;
+        height: 56px;
+        padding: 0;
+        gap: 0;
+
+        border: none;
+        border-radius: 10px;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item svg {
+        display: block;
+        width: 23px;
+        height: 23px;
+        flex-shrink: 0;
+    }
+
+    .main-content,
+    .menu-closed .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 30px 28px 110px;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .summary-card {
+        min-width: 0;
+        padding: 18px;
+    }
+
+    .summary-card h2 {
+        font-size: clamp(18px, 2.5vw, 27px);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .dashboard-left,
+    .dashboard-right {
+        gap: 20px;
+    }
+
+    .budget-content {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .donut-chart {
+        max-width: 220px;
+    }
+}
+
+/* =========================
+   MOBILE: 700px AND BELOW
+========================= */
+@media (max-width: 700px) {
+    .sidebar,
+    .menu-closed .sidebar {
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        min-width: 0;
+        height: 68px;
+        min-height: 68px;
+        padding: 5px 8px;
+
+        overflow: hidden;
+        border-radius: 14px 14px 0 0;
+        z-index: 1000;
+    }
+
+    .brand,
+    .minimize-btn {
+        display: none;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 100%;
+        gap: 0;
+    }
+
+    .nav-item,
+    .menu-closed .nav-item {
+        flex: 1 1 0;
+        justify-content: center;
+
+        width: 20%;
+        min-width: 0;
+        min-height: 52px;
+        height: 52px;
+        padding: 0;
+        gap: 0;
+
+        border: none;
+        border-radius: 8px;
+    }
+
+    .nav-item span {
+        display: none;
+    }
+
+    .nav-item svg {
+        display: block;
+        width: 21px;
+        height: 21px;
+        flex-shrink: 0;
+    }
+
+    .main-content,
+    .menu-closed .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 24px 16px 90px;
+    }
+
+    .page-header {
+        gap: 10px;
+        margin-bottom: 22px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .deposit-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .summary-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .summary-card {
+        min-height: 95px;
+        padding: 18px;
+    }
+
+    .summary-card h2 {
+        font-size: 26px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .dashboard-left,
+    .dashboard-right {
+        gap: 16px;
+    }
+
+    .panel {
+        padding: 20px 16px;
+    }
+
+    .panel-header {
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .panel-header h3 {
+        font-size: 17px;
+    }
+
+    .details-btn {
+        gap: 3px;
+        font-size: 11px;
+    }
+
+    .pots-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .total-saved {
+        min-height: 95px;
+        padding: 18px;
+    }
+
+    .total-saved h2 {
+        font-size: 28px;
+    }
+
+    .pot-list {
+        gap: 18px 10px;
+    }
+
+    .transaction-item {
+        gap: 9px;
+    }
+
+    .transaction-avatar {
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+    }
+
+    .transaction-info strong,
+    .transaction-amount {
+        font-size: 11px;
+    }
+
+    .transaction-info span {
+        display: block;
+        font-size: 10px;
+    }
+
+    .budget-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .donut-chart {
+        width: min(100%, 220px);
+    }
+
+    .budget-legend {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px 10px;
+    }
+
+    .bill-item {
+        padding: 17px 12px;
+        font-size: 12px;
+    }
+}
+
+/* =========================
+   SMALL MOBILE SCREENS
+========================= */
+@media (max-width: 360px) {
+    .main-content,
+    .menu-closed .main-content {
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .sidebar,
+    .menu-closed .sidebar {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+
+    .nav-item svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .panel {
+        padding: 18px 12px;
+    }
+
+    .transaction-avatar {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+    }
+
+    .transaction-item {
+        gap: 7px;
+    }
+
+    .transaction-info strong,
+    .transaction-amount {
+        font-size: 10px;
+    }
+}

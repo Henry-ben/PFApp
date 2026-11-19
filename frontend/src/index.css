@@ -1,0 +1,42 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #201f23;
+    background: #f7f4ef;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    display: block;
+    min-height: 100vh;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}

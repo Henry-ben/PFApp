@@ -1,0 +1,832 @@
+
+.pots-page {
+  width: 100%;
+  color: #201f23;
+  padding: 4px 0 24px;
+}
+
+.pots-page * {
+  box-sizing: border-box;
+}
+
+.pots-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
+
+.pots-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #2f7f7b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.pots-header h2 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 750;
+}
+
+.pots-header p {
+  max-width: 450px;
+  margin: 0;
+  color: #77757a;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.pots-total-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 225px;
+  padding: 15px 18px;
+  border: 1px solid #d6eae7;
+  border-radius: 22px;
+  background: #e6f3f1;
+}
+
+.pots-total-icon,
+.pots-footer-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: white;
+  background: #2f7f7b;
+}
+
+.pots-total-pill div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pots-total-pill div span {
+  color: #77757a;
+  font-size: 12px;
+}
+
+.pots-total-pill strong {
+  font-size: 20px;
+}
+
+.pots-tip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  padding: 15px 18px;
+  border: 1px solid #d6eae7;
+  border-radius: 13px;
+  color: #2f7f7b;
+  background: #e9f4f2;
+}
+
+.pots-tip svg {
+  flex-shrink: 0;
+}
+
+.pots-tip p {
+  margin: 0;
+  color: #4f6261;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.pots-notice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding: 13px 15px;
+  border: 1px solid #cce5dc;
+  border-radius: 12px;
+  color: #246b56;
+  background: #edf8f1;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pots-notice span {
+  flex: 1;
+}
+
+.pots-notice button {
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pots-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.pots-summary h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.pots-summary p {
+  margin: 0;
+  color: #77757a;
+  font-size: 13px;
+}
+
+.pots-add-button,
+.pots-submit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 43px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  background: #2f7f7b;
+  font-weight: 650;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s;
+}
+
+.pots-add-button:hover,
+.pots-submit-button:hover {
+  background: #246b67;
+}
+
+.pots-add-button:disabled,
+.pots-submit-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.pot-card {
+  position: relative;
+  min-width: 0;
+  padding: 20px 18px 17px;
+  overflow: visible;
+  border: 1px solid #e7e5e2;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgb(32 31 35 / 3%);
+}
+
+.pot-teal {
+  border-color: #d2e7e3;
+  background: linear-gradient(145deg, #eaf5f2 0%, #fff 62%);
+}
+
+.pot-peach {
+  border-color: #f2dfd1;
+  background: linear-gradient(145deg, #fff1e8 0%, #fff 62%);
+}
+
+.pot-blue {
+  border-color: #d2e6f0;
+  background: linear-gradient(145deg, #eaf5fb 0%, #fff 62%);
+}
+
+.pot-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.pot-icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: white;
+  background: #2f7f7b;
+}
+
+.pot-peach .pot-icon {
+  background: #e99b67;
+}
+
+.pot-blue .pot-icon {
+  background: #65b5d5;
+}
+
+.pot-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.pot-title h4 {
+  margin: 3px 0 9px;
+  overflow-wrap: anywhere;
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.pot-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.priority-high {
+  color: #2f7f7b;
+  background: #d7eee8;
+}
+
+.priority-medium {
+  color: #b76a35;
+  background: #ffead9;
+}
+
+.priority-low {
+  color: #398eb3;
+  background: #dceff8;
+}
+
+.pot-menu-wrap {
+  position: relative;
+  margin-left: auto;
+}
+
+.pot-menu-button {
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  border: 0;
+  border-radius: 7px;
+  color: #77757a;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pot-menu-button:hover {
+  background: rgb(0 0 0 / 5%);
+}
+
+.pot-menu {
+  position: absolute;
+  z-index: 5;
+  top: 32px;
+  right: 0;
+  min-width: 125px;
+  padding: 5px;
+  border: 1px solid #e7e5e2;
+  border-radius: 9px;
+  background: white;
+  box-shadow: 0 5px 20px rgb(0 0 0 / 10%);
+}
+
+.pot-menu button {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 6px;
+  color: #a63d3d;
+  background: white;
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pot-menu button:hover {
+  background: #fff0f0;
+}
+
+.pot-description {
+  min-height: 36px;
+  margin: 14px 0 18px;
+  color: #77757a;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.pot-progress-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 9px;
+  font-size: 13px;
+}
+
+.pot-progress-heading strong {
+  font-size: 13px;
+}
+
+.pot-progress-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #e9e8e7;
+}
+
+.pot-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #2f7f7b;
+  transition: width 0.3s ease;
+}
+
+.pot-peach .pot-progress-fill {
+  background: #e99b67;
+}
+
+.pot-blue .pot-progress-fill {
+  background: #65b5d5;
+}
+
+.pot-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.pot-amounts strong {
+  font-size: 14px;
+}
+
+.pot-amounts span {
+  color: #77757a;
+}
+
+.pot-remaining {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 13px;
+  border-top: 1px solid #efeeec;
+  font-size: 12px;
+}
+
+.pot-remaining span {
+  color: #77757a;
+}
+
+.pot-remaining strong {
+  font-size: 13px;
+}
+
+.pot-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #efeeec;
+}
+
+.pot-details > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  color: #77757a;
+}
+
+.pot-details > div svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pot-details > div span {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  font-size: 11px;
+}
+
+.pot-details strong {
+  overflow-wrap: anywhere;
+  color: #201f23;
+  font-size: 12px;
+}
+
+.pot-save-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin-top: 18px;
+  padding: 11px;
+  border: 1px solid #cfe3df;
+  border-radius: 9px;
+  color: #2f7f7b;
+  background: #f1f8f6;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pot-save-button:hover:not(:disabled) {
+  background: #dff0ec;
+}
+
+.pot-save-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pot-history-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 9px;
+    padding: 11px;
+    border: 1px solid #dedbd7;
+    border-radius: 9px;
+    color: #45434a;
+    background: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.pot-history-button:hover {
+    border-color: #2f7f7b;
+    color: #2f7f7b;
+    background: #f1f8f6;
+}
+
+.pot-add-card {
+  display: flex;
+  min-height: 290px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  border: 2px dashed #dedbd7;
+  border-radius: 15px;
+  color: #77757a;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.pot-add-card:hover {
+  border-color: #2f7f7b;
+  background: #edf6f4;
+}
+
+.pot-add-circle {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 3px;
+  border-radius: 50%;
+  color: #2f7f7b;
+  background: #e4f1ee;
+}
+
+.pot-add-card strong {
+  color: #201f23;
+  font-size: 16px;
+}
+
+.pot-add-card > span:last-child {
+  font-size: 12px;
+}
+
+.pots-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 20px;
+  border: 1px dashed #dedbd7;
+  border-radius: 15px;
+  color: #2f7f7b;
+  text-align: center;
+}
+
+.pots-empty h3 {
+  margin: 15px 0 6px;
+  color: #201f23;
+}
+
+.pots-empty p {
+  color: #77757a;
+  font-size: 13px;
+}
+
+.pots-empty button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 9px;
+  color: white;
+  background: #2f7f7b;
+  cursor: pointer;
+}
+
+.pots-footer-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid #d6eae7;
+  border-radius: 14px;
+  background: #e9f4f2;
+}
+
+.pots-footer-info > div {
+  min-width: 0;
+}
+
+.pots-footer-info strong {
+  font-size: 13px;
+}
+
+.pots-footer-info p {
+  margin: 6px 0;
+  color: #647472;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.pots-footer-info small {
+  color: #2f7f7b;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.pots-modal-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgb(32 31 35 / 55%);
+}
+
+.pots-modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  padding: 25px;
+  overflow-y: auto;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 15px 50px rgb(0 0 0 / 15%);
+}
+
+.pots-modal-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 23px;
+}
+
+.pots-modal-heading h3 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.pot-close-button {
+  display: grid;
+  place-items: center;
+  padding: 7px;
+  border: 0;
+  border-radius: 8px;
+  color: #77757a;
+  background: #f5f4f2;
+  cursor: pointer;
+}
+
+.pot-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.pot-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 14px;
+    border: 1px solid #e7e5e2;
+    border-radius: 10px;
+    background: #faf9f7;
+}
+
+.pot-history-item > div {
+    min-width: 0;
+}
+
+.pot-history-item strong {
+    color: #2f7f7b;
+    font-size: 15px;
+}
+
+.pot-history-item p {
+    margin: 5px 0 0;
+    color: #77757a;
+    font-size: 12px;
+}
+
+.pot-history-item small {
+    flex-shrink: 0;
+    color: #77757a;
+    font-size: 11px;
+    text-align: right;
+}
+
+.pots-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.pots-modal form label {
+  margin: 13px 0 7px;
+  color: #45434a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pots-modal form input,
+.pots-modal form textarea,
+.pots-modal form select {
+  width: 100%;
+  min-height: 43px;
+  padding: 11px 12px;
+  border: 1px solid #dedbd7;
+  border-radius: 8px;
+  outline: none;
+  color: #201f23;
+  background: white;
+  font: inherit;
+  font-size: 13px;
+}
+
+.pots-modal form textarea {
+  resize: vertical;
+}
+
+.pots-modal form input:focus,
+.pots-modal form textarea:focus,
+.pots-modal form select:focus {
+  border-color: #2f7f7b;
+  box-shadow: 0 0 0 3px rgb(47 127 123 / 10%);
+}
+
+.pots-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.pots-form-actions button {
+  flex: 1;
+  min-height: 43px;
+  border-radius: 9px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pots-cancel-button {
+  border: 1px solid #dedbd7;
+  color: #45434a;
+  background: white;
+}
+
+.pots-retry-btn {
+    background: #2f7f7b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.pots-retry-btn:hover {
+    background: #256663;
+}
+
+@media (max-width: 850px) {
+  .pots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pot-add-card {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pots-page {
+    padding-bottom: 18px;
+  }
+
+  .pots-header {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .pots-header h2 {
+    font-size: 27px;
+  }
+
+  .pots-total-pill {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .pots-tip {
+    align-items: flex-start;
+    padding: 13px;
+  }
+
+  .pots-summary {
+    align-items: flex-start;
+  }
+
+  .pots-summary h3 {
+    font-size: 17px;
+  }
+
+  .pots-add-button {
+    padding: 0 11px;
+    font-size: 12px;
+  }
+
+  .pot-card {
+    padding: 16px 14px;
+  }
+
+  .pot-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .pot-title h4 {
+    font-size: 15px;
+  }
+
+  .pot-details {
+    gap: 8px;
+  }
+
+  .pots-footer-info {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .pots-footer-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pots-modal {
+    padding: 19px;
+  }
+}
